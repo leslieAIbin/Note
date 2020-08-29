@@ -1,0 +1,28 @@
+#
+spring:
+  #数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    type: org.springframework.jdbc.datasource.DriverManagerDataSource
+  #redis
+  redis:
+    host: 116.62.44.5
+    password: 123456
+    port: 6390
+    jedis:
+      pool:
+        max-active: 20
+        max-idle: 8
+        min-idle: 0
+        max-wait: 2000
+#mybatis
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*Mapper.xml
+  configuration:
+    log-prefix: mybatis
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
