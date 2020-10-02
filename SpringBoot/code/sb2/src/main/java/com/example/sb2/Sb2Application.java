@@ -1,5 +1,6 @@
 package com.example.sb2;
 
+import com.example.sb2.initializer.SecondInitializer;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +11,15 @@ public class Sb2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Sb2Application.class, args);
+
+
+//		// ctrl + alt + v 快速实例化
+//		SpringApplication springApplication = new SpringApplication(Sb2Application.class);
+//		// 添加系统初始化器
+//		springApplication.addInitializers(new SecondInitializer());
+//		springApplication.run(args);
+
 	}
+
 
 }

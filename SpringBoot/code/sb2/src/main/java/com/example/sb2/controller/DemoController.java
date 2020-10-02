@@ -2,6 +2,7 @@ package com.example.sb2.controller;
 
 import com.example.sb2.bean.Demo;
 import com.example.sb2.service.DemoService;
+import com.example.sb2.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,8 @@ import java.util.Optional;
 public class DemoController {
     @Autowired
     private DemoService demoService;
+    @Autowired
+    private TestService testService;
 
     @RequestMapping("/hello/{id}")
     @ResponseBody
@@ -23,7 +26,10 @@ public class DemoController {
     }
 
 
-
-
+    @RequestMapping("test")
+    @ResponseBody
+    public String test(){
+        return testService.test();
+    }
 
 }
