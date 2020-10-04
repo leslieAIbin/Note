@@ -12,7 +12,6 @@ public class Sb2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Sb2Application.class, args);
 
-
 //		// ctrl + alt + v 快速实例化
 //		SpringApplication springApplication = new SpringApplication(Sb2Application.class);
 //		// 添加系统初始化器
@@ -20,6 +19,4 @@ public class Sb2Application {
 //		springApplication.run(args);
 
 	}
-
-
 }
