@@ -1,10 +1,19 @@
 package com.example.sb2.IOC.xml;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class HelloService {
     private Student student;
 
 
+    @Autowired
+    @Qualifier("bird")
     private Animal animal;
+
 
 
     public Animal getAnimal() {
@@ -24,7 +33,8 @@ public class HelloService {
     }
 
     public String hello() {
-        return student.toString();
+//        return student.toString();
+        return "hello";
     }
 
     public String hello2() {
