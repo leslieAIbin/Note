@@ -36,6 +36,7 @@ public class MyObject {
         myObject.change(a);
         System.out.println(a);
 
+        String str = "lzn";
 
     }
 }
