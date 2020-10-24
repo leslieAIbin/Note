@@ -7,5 +7,7 @@ public class ReentrantLockDemo {
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         reentrantLock.unlock();
+        
+
     }
 }

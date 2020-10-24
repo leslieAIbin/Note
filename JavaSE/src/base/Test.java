@@ -52,7 +52,7 @@ public class Test {
         // string - pattern 
         for(int i = 0 ;i<pattern.length();++i){
             if(
-                pattern.indexOf(pattern.charAt(i)) != list.indexOf(list.get(i))
+                pattern.indexOf(pattern.charAt(i)) list.indexOf(list.get(i))
             ){
                 return false;
             }
@@ -66,7 +66,7 @@ public class Test {
     public static void main(String[] args) {
 
         String pattern = "abba";
-        String str = "dog cat  cat fish";
+        String str = "dog cat  cat dog";
         System.out.println(new Test().wordPattern(pattern, str));
 
         List<String> list = new ArrayList<>();

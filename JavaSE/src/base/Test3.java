@@ -2,6 +2,8 @@ package base;
 
 import java.util.*;
 
+import sun.net.httpserver.HttpServerImpl;
+
 class TreeNode {
     int val;
     TreeNode left;
@@ -21,8 +23,37 @@ public class Test3 {
      * @param root
      * @return
      */
+    // private int sum = 0;
     public int sumOfLeftLeaves(TreeNode root) {
-        // 如何判断一个叶子节点
+        if(root == null) return 0;
+        int sum = 0;
+        if(root.left != null && root.left.left == null && root.left.right ==null){
+            sum += root.left.val;
+        }
+        // 分治法
+        if(root.left != null) sum += sumOfLeftLeaves(root.left);
+        if(root.right != null) sum += sumOfLeftLeaves(root.right);
+
+        return sum; 
+    }
+
+
+    public String toHex(int num){
+        if(num == 0) return "0";
+        String res = "";
+        int len = 0;
+        while(num != 0 && len < 8){
+            int bit = num & 15;
+            if(bit < 10){
+                res = String.valueOf(bit) + res;
+            } else {
+                res = String.valueOf((char)('a'+bit-10)) + res;
+            }
+            num >>= 4;
+            len++;
+        }
+        return res;
+
     }
 
     /**
@@ -61,8 +92,42 @@ public class Test3 {
         return result;
     }
 
-    public static void main(String[] args) {  
+    // 最长 最大奇数 加上 所有偶数
+    public int longestPalindrome(String s) {
+        char[] carr = s.toCharArray();
+        int[] map = new int[256];
+        int maxOdd = 0;// 最大奇数
+        for(int i = 0;i<carr.length;++i){
+            map[carr[i]]++;
+        }
 
+        int sum =  0;// 先加上偶数
+
+        for(int i = 0;i<map.length;++i){
+            if(map[i] % 2 == 1) maxOdd = Math.max(maxOdd, map[i]);
+            else sum += map[i];
+        }
+
+        return sum + maxOdd;
+        
+    }
+
+    // public int numberOfBoomerangs(int[][] points) {
+
+    // }
+
+    public int helper(int num){
+        int result = 0;
+        // 取出每一个最后的数
+        while(num != 0){
+            result = result << 1 + (~(num & 1));
+            num >>= 1;
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        System.out.println(new Test3().helper(5));
+        System.out.println(~1);
     }
     
 }
